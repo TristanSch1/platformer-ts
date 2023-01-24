@@ -17,3 +17,20 @@ export const GAME_IMAGES = {
   // ground_section01: "../public/images/ground_section01.png",
   // ground_section02: "../public/images/ground_section02.png",
 };
+
+export const loadImages = (images: string[], onComplete: () => void) => {
+  let loaded = 0;
+
+  function onLoad() {
+    loaded++;
+    if (loaded === images.length) {
+      onComplete();
+    }
+  }
+
+  for (const element in images) {
+    let img = new Image();
+    img.src = images[element];
+    img.addEventListener("load", onLoad);
+  }
+};
