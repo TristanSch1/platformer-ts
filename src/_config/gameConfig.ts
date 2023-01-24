@@ -2,10 +2,10 @@ export const gameConfig = {
   gravity: 0.5,
   parallax: {
     background: {
-      speed: 1,
+      speed: 5,
     },
     foreground: {
-      speed: 2,
+      speed: 7,
     },
     limits: {
       left: 100,

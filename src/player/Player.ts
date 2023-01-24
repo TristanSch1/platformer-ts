@@ -107,5 +107,4 @@ export class Player implements IMovableEntity {
   update() {
     this.handlers.forEach((handler) => handler.bind(this)());
   }
-  d;
 }

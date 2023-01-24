@@ -17,8 +17,8 @@ export class Game implements IGame {
     this.gameWidth = gameWidth;
     this.gameHeight = gameHeight;
     this.gravity = gameConfig.gravity;
-    this.foreground = new Decor(this, GAME_IMAGES.foreground);
-    this.background = new Decor(this, GAME_IMAGES.background);
+    this.foreground = new Decor(this, GAME_IMAGES.foreground, true);
+    this.background = new Decor(this, GAME_IMAGES.background, true);
     new InputHandler(this);
     this.player = new Player(this);
   }
