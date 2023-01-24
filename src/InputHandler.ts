@@ -13,8 +13,8 @@ export class InputHandler {
         case "d":
           game.player.moveRight();
           break;
-        //ESPACE key
-        case "space":
+        //SPACE key
+        case " ":
         case "w":
           if (game.player.velocity.y === 0) game.player.jump();
           break;

@@ -1,6 +1,7 @@
 "use strict";
 
 import { Game } from "./Game";
+import { GAME_IMAGES } from "./utils/images";
 
 const canvas = document.querySelector("canvas") as HTMLCanvasElement;
 const ctx = canvas.getContext("2d");
@@ -39,6 +40,24 @@ function gameLoop(ctx: CanvasRenderingContext2D) {
   lastTime = currentTime - (delta % interval);
 }
 
-gameLoop(ctx);
+//Loading all images before executing gameLoop
+function loadImages(images: string[], onComplete: () => void) {
+  let loaded = 0;
+
+  function onLoad() {
+    loaded++;
+    if (loaded === images.length) {
+      onComplete();
+    }
+  }
+
+  for (const element in images) {
+    let img = new Image();
+    img.src = images[element];
+    img.addEventListener("load", onLoad);
+  }
+}
+
+loadImages(Object.values(GAME_IMAGES), gameLoop.bind(null, ctx));
 
 export {};
